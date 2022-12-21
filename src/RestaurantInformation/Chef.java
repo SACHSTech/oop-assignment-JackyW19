@@ -1,7 +1,7 @@
 package RestaurantInformation;
 
 public class Chef extends Employee{
-    // Instance variable
+  // Instance variable
   private int hours;
 
   /**

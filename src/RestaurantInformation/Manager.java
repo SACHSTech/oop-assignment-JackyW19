@@ -2,7 +2,7 @@ package RestaurantInformation;
 
 public class Manager extends Employee{
     // Instance variable
-  private String currentProject;
+  private int hours;
 
   /**
     * Constructor - creates a new Manager instance
@@ -11,20 +11,20 @@ public class Manager extends Employee{
     * @param address - the Manager's home address
     * @param med - the Manager's medical information
     * @param sal - the Manager's salary
-    * @param project - the Manager's project
+    * @param theHours - the Manager's hours
     */
-  public Manager(String fname, String lname, String address, String med, int sal, String project){
+  public Manager(String fname, String lname, String address, String med, int sal, int theHours){
     // Triggers a parent constructor in Employee class
     super(fname, lname, address, med, sal);
-    currentProject = project;
+    hours = theHours;
   }
 
   /**
-  * Getter method for manager's current project
-  * @return manager's current project
+  * Getter method for Manager's hours
+  * @return Manager's hours
   */
-  public String getCurrentProject(){
-    return currentProject;
+  public int getHours(){
+    return hours;
   }
 
   /**
@@ -33,13 +33,13 @@ public class Manager extends Employee{
   */
   public String toString(){
     System.out.println("--------------------------------------");
-    System.out.println("Position: Software Development Manager");
+    System.out.println("Position: Manager");
     System.out.println("First Name: " + getFirstName());
     System.out.println("Last Name: " + getLastName());
     System.out.println("Home Address: " + getAddress());
     System.out.println("Medical Information: " + getMedical());
     System.out.println("Salary: $" + getSalary());
-    System.out.println("Current Project: " + currentProject);
+    System.out.println("Number of Hours Worked: " + hours);
     return "--------------------------------------";
   }
 

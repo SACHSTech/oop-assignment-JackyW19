@@ -64,7 +64,7 @@ public class Main {
     Phineas = new CEO("Phineas", "Flynn", "34 Pineapple Rd.", "Peanut Allergy", 5000000, 10000);
     Ferb = new Manager("Ferb", "Fletcher", "59 Karate Ave.", "n/a", 70000, 90);
     Candace = new Cashier("Candace", "Flynn", "75 Krusty Krab Rd.", "Shellfish Allergy", 70000, 88);
-    Heinz = new HeadChef("Heinz", "Doofenshmirtz", "23 Rock Rd.", "Asthma", 150000, "Meditation App");
+    Heinz = new HeadChef("Heinz", "Doofenshmirtz", "23 Rock Rd.", "Asthma", 150000, 5000);
     Baljeet = new Chef("Squidward", "Tentacles", "9 Octopus Cres.", "Dog Allergy", 150000, "Music App");
     Perry = new Chef("Perry", "Platypus", "");
     Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "");
