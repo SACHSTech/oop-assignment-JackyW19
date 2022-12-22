@@ -11,8 +11,9 @@ public class Main {
     // Initialize objects
     CEO Phineas;
     Manager Ferb;
+    Manager Heinz;
     Cashier Candace;
-    Chef Heinz;
+    Cashier Linda;
     Chef Baljeet;
     Chef Perry;
     Waitress Vanessa;
@@ -61,22 +62,24 @@ public class Main {
     }
 
     // Creates existing employees
-    Phineas = new CEO("Phineas", "Flynn", "34 Pineapple Rd.", "Peanut Allergy", 5000000, 10000);
-    Ferb = new Manager("Ferb", "Fletcher", "59 Karate Ave.", "n/a", 70000, 90);
-    Candace = new Cashier("Candace", "Flynn", "75 Krusty Krab Rd.", "Shellfish Allergy", 70000, 88);
-    Heinz = new HeadChef("Heinz", "Doofenshmirtz", "23 Rock Rd.", "Asthma", 150000, 5000);
-    Baljeet = new Chef("Squidward", "Tentacles", "9 Octopus Cres.", "Dog Allergy", 150000, "Music App");
-    Perry = new Chef("Perry", "Platypus", "");
-    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "28", "none", 200, 200);
-    Isabella = new Waitress("Isabella", "Shapiro", "");
+    Phineas = new CEO("Phineas", "Flynn", "2308 Maple Drive.", "Peanut Allergy", 2000000, 10000);
+    Ferb = new Manager("Ferb", "Fletcher", "2308 Maple Drive.", "n/a", 90000, 5500);
+    Heinz = new Manager("Heinz", "Doofenshmirtz", "75 Main Street.", "n/a", 90000, 6000);
+    Candace = new Cashier("Candace", "Flynn", "2308 Maple Drive.", "Asthma", 70000, 4500);
+    Linda = new Cashier("Linda", "Fletcher", "2308 Maple Drive.", "n/a", 70000, 5100);
+    Baljeet = new Chef("Baljeet", "Brown", "28 Alvin Street.", "Dog Allergy", 120000, 6500);
+    Perry = new Chef("Perry", "Platypus", "30 Platy Avenue", "Seafood Allergy", 120000, 6400);
+    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 4500);
+    Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", 60000, 4600);
 
     // Creates a Resturant object
     Restaurant theResturant = new Restaurant(Ferb);
 
     // Adds esisting managers and developers to the arraylist
     theResturant.addManager(Ferb);
+    theResturant.addManager(Heinz);
     theResturant.addCashier(Candace);
-    theResturant.addHeadChef(Heinz);
+    theResturant.addCashier(Linda);
     theResturant.addChef(Baljeet);
     theResturant.addChef(Perry);
     theResturant.addWaitress(Vanessa);
@@ -88,7 +91,7 @@ public class Main {
       // Displays HR information about the CEO
       if (choice.equals("11001")) {
         // Prints out the CEO
-        System.out.println(Ferb);
+        System.out.println(Phineas);
         
         // The user can view other menu options or exit the program
         System.out.println("\nPlease enter the secure passcode or any other key to exit");
@@ -117,11 +120,8 @@ public class Main {
           System.out.print("Medical Information: ");
           String medCondition = keyboard.readLine();
 
-          System.out.print("Current Project: ");
-          String project = keyboard.readLine();
-
           // Creates a new manager with given information and prints out the new developer
-          newManager = new Manager(fName, lName, address, medCondition, 150000, project);
+          newManager = new Manager(fName, lName, address, medCondition, 90000, hours);
           theResturant.addManager(newManager);
           System.out.println(newManager);
 
@@ -161,7 +161,7 @@ public class Main {
           int hours = Integer.parseInt(keyboard.readLine());
 
           // Creates a new developer with given information and prints out the new developer
-          newDev = new Developer(fName, lName, address, medCondition, 70000, hours);
+          newDev = new Developer(fName, lName, address, medCondition, 90000, hours);
           theResturant.addDeveloper(newDev);
           System.out.println(newDev);
 
