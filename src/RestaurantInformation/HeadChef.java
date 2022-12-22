@@ -1,45 +1,31 @@
 package RestaurantInformation;
 
 public class HeadChef extends Employee{
-    // Instance variable
-  private int bonusPay;
 
-  // Class variable
-  private static int headChefPayroll = 0;
+    // Instance variable
+  private int hours;
 
   /**
-    * Constructor - creates a new HeadChef instance
-    * @param fname - the HeadChef's first name
-    * @param lname - the HeadChef's last name
-    * @param address - the HeadChef's home address
-    * @param med - the HeadChef's medical information
-    * @param sal - the HeadChef's salary
-    * @param bonus - the HeadChef's bonus
+    * Constructor - creates a new Head Chef instance
+    * @param fname - the Head Chef's first name
+    * @param lname - the Head Chef's last name
+    * @param address - the Head Chef's home address
+    * @param med - the Head Chef's medical information
+    * @param sal - the Head Chef's salary
+    * @param theHours - the Head Chef's hours
     */
-
-  public HeadChef(String fname, String lname, String address, String med, int sal, int bonus){
+  public HeadChef(String fname, String lname, String address, String med, int sal, int theHours){
     // Triggers a parent constructor in Employee class
     super(fname, lname, address, med, sal);
-    bonusPay = bonus;
-
-    // Calculates the total payroll for the HeadChef
-    headChefPayroll = sal + bonus;
+    hours = theHours;
   }
 
   /**
-  * Getter method for HeadChef's payroll
-  * @return HeadChef's payroll
+  * Getter method for Head Chef's hours
+  * @return Head Chef's hours
   */
-  public static int getHeadChefPayroll(){
-    return headChefPayroll;
-  }
-
-  /**
-  * Getter method for HeadChef's bonus
-  * @return HeadChef's bonus
-  */
-  public int getHeadChefBonus(){
-    return bonusPay;
+  public int getHours(){
+    return hours;
   }
 
   /**
@@ -48,13 +34,15 @@ public class HeadChef extends Employee{
   */
   public String toString(){
     System.out.println("--------------------------------------");
-    System.out.println("Position: HeadChef");
+    System.out.println("Position: Head Chef");
     System.out.println("First Name: " + getFirstName());
     System.out.println("Last Name: " + getLastName());
     System.out.println("Home Address: " + getAddress());
     System.out.println("Medical Information: " + getMedical());
     System.out.println("Salary: $" + getSalary());
-    System.out.println("Bonus: $" + bonusPay);
+    System.out.println("Number of Hours Worked: " + hours);
+    System.out.println("Number of Dishes Cooked" + hours);
     return "--------------------------------------";
   }
 }
+
