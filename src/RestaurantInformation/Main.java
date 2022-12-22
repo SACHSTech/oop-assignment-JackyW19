@@ -12,7 +12,7 @@ public class Main {
     CEO Phineas;
     Manager Ferb;
     Cashier Candace;
-    HeadChef Heinz;
+    Chef Heinz;
     Chef Baljeet;
     Chef Perry;
     Waitress Vanessa;
@@ -67,7 +67,7 @@ public class Main {
     Heinz = new HeadChef("Heinz", "Doofenshmirtz", "23 Rock Rd.", "Asthma", 150000, 5000);
     Baljeet = new Chef("Squidward", "Tentacles", "9 Octopus Cres.", "Dog Allergy", 150000, "Music App");
     Perry = new Chef("Perry", "Platypus", "");
-    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "");
+    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "28", "none", 200, 200);
     Isabella = new Waitress("Isabella", "Shapiro", "");
 
     // Creates a Resturant object

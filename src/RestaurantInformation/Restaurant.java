@@ -1,16 +1,12 @@
 package RestaurantInformation;
 
-import java.io.*;
 import java.util.ArrayList;
-
-import com.apple.laf.resources.aqua;
 
 
 public class Restaurant {
 
   // Instance Variables
-  private CEO ceo;
-  private HeadChef headChef;
+  private CEO CEO;
   private ArrayList<Cashier> cashiers;
   private ArrayList<Manager> managers;
   private ArrayList<Chef> chefs;
@@ -21,9 +17,8 @@ public class Restaurant {
     * @param theCEO - the CEO
     */
   public Restaurant(CEO theCEO){
-    ceo = theCEO;
+    CEO = theCEO;
     // Initializes the staff lists
-    headChef =
     cashiers = new ArrayList<Cashier>();
     managers = new ArrayList<Manager>();
     chefs = new ArrayList<Chef>();
@@ -63,12 +58,11 @@ public class Restaurant {
   }
   
   
-
   /**
   * Method allows for getting number of cashiers
-  * @return number of cashiers
+  * @return number of staff
   */
-  public int getNumCas(){
+  public int getNumCashiers(){
     return cashiers.size();
   }
 
@@ -80,13 +74,30 @@ public class Restaurant {
     return managers.size();
   }
 
+   /**
+  * Method allows for getting number of managers
+  * @return number of cashiers
+  */
+  public int getNumChefs(){
+    return chefs.size();
+  }
+
+   /**
+  * Method allows for getting number of 
+  * @return number of cashiers
+  */
+  public int getNumWaitresses(){
+    return waitresses.size();
+  }
+
+
   /**
   * Method allows for getting the total cashier payroll
   * @return total payroll for cashiers
   */
-  public int getPayrollDev(){
+  public int getCashierPayroll(){
     int totalPayroll = 0;
-    for(int i = 0; i < getNumDev(); i++){
+    for(int i = 0; i < getNumCashiers(); i++){
       totalPayroll = totalPayroll + cashiers.get(i).getSalary();
     }
     return totalPayroll;
@@ -96,10 +107,34 @@ public class Restaurant {
   * Method allows for getting the total manager payroll
   * @return total payroll for managers
   */
-  public int getPayrollManager(){
+  public int getManagerPayroll(){
     int totalPayroll = 0;
     for(int i = 0; i < getNumManagers(); i++){
       totalPayroll = totalPayroll + managers.get(i).getSalary();
+    }
+    return totalPayroll;
+  }
+
+  /**
+  * Method allows for getting the total chef payroll
+  * @return total payroll for chefs
+  */
+  public int getChefPayroll(){
+    int totalPayroll = 0;
+    for(int i = 0; i < getNumChefs(); i++){
+      totalPayroll = totalPayroll + chefs.get(i).getSalary();
+    }
+    return totalPayroll;
+  }
+
+  /**
+  * Method allows for getting the total waitress payroll
+  * @return total payroll for waitresses
+  */
+  public int getWaitressPayroll(){
+    int totalPayroll = 0;
+    for(int i = 0; i < getNumWaitresses(); i++){
+      totalPayroll = totalPayroll + waitresses.get(i).getSalary();
     }
     return totalPayroll;
   }
@@ -115,12 +150,32 @@ public class Restaurant {
   }
 
   /**
+  * Method allows for the printing out of all the waitresses
+  * @return void
+  */
+  public void printWaitresses(){
+    for (int i = 0; i < getNumWaitresses(); i++) {
+      System.out.println(waitresses.get(i));
+    }
+  }
+
+  /**
   * Method allows for the printing out of all the cashiers
   * @return void
   */
-  public void printDevs(){
-    for (int i = 0; i < getNumDev(); i++) {
+  public void printCashiers(){
+    for (int i = 0; i < getNumCashiers(); i++) {
       System.out.println(cashiers.get(i));
+    }
+  }
+
+  /**
+  * Method allows for the printing out of all the chefs
+  * @return void
+  */
+  public void printChefs(){
+    for (int i = 0; i < getNumChefs(); i++) {
+      System.out.println(chefs.get(i));
     }
   }
 
@@ -128,18 +183,41 @@ public class Restaurant {
   * Method allows for the printing out of all the cashiers' hours
   * @return void
   */
-  public void printDevHours(){
-    for (int i = 0; i < getNumDev(); i++) {
+  public void printCashierHours(){
+    for (int i = 0; i < getNumCashiers(); i++) {
       System.out.println(cashiers.get(i).getFirstName() + " " + cashiers.get(i).getLastName() + ": " + cashiers.get(i).getHours());
     }
   }
 
   /**
-  * Method allows for the printing out of all the managers' current projects
+  * Method allows for the printing out of all the chefs hours
   * @return void
   */
-  public void printManagerProject(){
-    for (int i = 0; i < getNumManagers(); i++) {
-      System.out.println(managers.get(i).getFirstName() + " " + managers.get(i).getLastName() + ": " + managers.get(i).getCurrentProject());
+  public void printChefHours(){
+    for (int i = 0; i < getNumChefs(); i++) {
+      System.out.println(chefs.get(i).getFirstName() + " " + chefs.get(i).getLastName() + ": " + chefs.get(i).getHours());
     }
+  }
+
+  /**
+  * Method allows for the printing out of all the managers hours
+  * @return void
+  */
+  public void printManagerHours(){
+    for (int i = 0; i < getNumManagers(); i++) {
+      System.out.println(managers.get(i).getFirstName() + " " + managers.get(i).getLastName() + ": " + managers.get(i).getHours());
+    }
+  }
+
+  /**
+  * Method allows for the printing out of all the waitresses hours
+  * @return void
+  */
+  public void printWaitressHours(){
+    for (int i = 0; i < getNumWaitresses(); i++) {
+      System.out.println(waitresses.get(i).getFirstName() + " " + waitresses.get(i).getLastName() + ": " + waitresses.get(i).getHours());
+    }
+  }
+
+  
   }

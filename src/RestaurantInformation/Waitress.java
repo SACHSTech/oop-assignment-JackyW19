@@ -4,6 +4,8 @@ public class Waitress extends Employee{
 
 // Instance variable
   private int hours;
+  private int tips;
+
 
   /**
     * Constructor - creates a new Waitress instance
@@ -14,10 +16,11 @@ public class Waitress extends Employee{
     * @param sal - the Waitress's salary
     * @param theHours - the Waitress's hours
     */
-  public Waitress(String fname, String lname, String address, String med, int sal, int theHours){
+  public Waitress(String fname, String lname, String address, String med, int sal, int theHours, int theTips){
     // Triggers a parent constructor in Employee class
     super(fname, lname, address, med, sal);
     hours = theHours;
+    tips = theTips;
   }
 
   /**
@@ -27,6 +30,14 @@ public class Waitress extends Employee{
   public int getHours(){
     return hours;
   }
+
+  /**
+  * Getter method for Waitress's tips
+  */
+  public int getTips(){
+    return tips;
+  }
+
 
   /**
   * String representation of a Waitress
@@ -41,6 +52,7 @@ public class Waitress extends Employee{
     System.out.println("Medical Information: " + getMedical());
     System.out.println("Salary: $" + getSalary());
     System.out.println("Number of Hours Worked: " + hours);
+    System.out.println("Amount of Tips: " + tips);
     return "--------------------------------------";
   }
 }
