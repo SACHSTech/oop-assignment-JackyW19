@@ -11,13 +11,13 @@ public class Manager extends Employee{
     * @param address - the Manager's home address
     * @param med - the Manager's medical information
     * @param sal - the Manager's salary
-    * @param theHours - the Manager's hours
     */
   public Manager(String fname, String lname, String address, String med, int sal, int theHours){
     // Triggers a parent constructor in Employee class
     super(fname, lname, address, med, sal);
     hours = theHours;
   }
+
 
   /**
   * Getter method for Manager's hours

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.hamcrest.core.Is;
 
 public class Main {
-     public static void main(String[] args) throws IOException{
+     public static void main(String[] args, int tips) throws IOException{
 
     // Initialize objects
     CEO Phineas;
@@ -44,10 +44,9 @@ public class Main {
       System.out.println("1 - CEO");
       System.out.println("2 - Manager");
       System.out.println("3 - Cashier");
-      System.out.println("4 - Head Chef");
-      System.out.println("5 - Chefs");
-      System.out.println("6 - Waitresses");
-      System.out.println("7 - HR Report");
+      System.out.println("4 - Chefs");
+      System.out.println("5- Waitresses");
+      System.out.println("6 - HR Report");
 
       System.out.println("Please enter the secure passcode. E.g. 11001 for CEO or 11002 for Managers");
 
@@ -69,11 +68,11 @@ public class Main {
     Linda = new Cashier("Linda", "Fletcher", "2308 Maple Drive.", "n/a", 70000, 5100);
     Baljeet = new Chef("Baljeet", "Brown", "28 Alvin Street.", "Dog Allergy", 120000, 6500);
     Perry = new Chef("Perry", "Platypus", "30 Platy Avenue", "Seafood Allergy", 120000, 6400);
-    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 4500);
-    Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", 60000, 4600);
+    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 4500, 2500);
+    Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", "Peanut Allergy", 60000, 4600, 2700);
 
     // Creates a Resturant object
-    Restaurant theResturant = new Restaurant(Ferb);
+    Restaurant theResturant = new Restaurant(Phineas);
 
     // Adds esisting managers and developers to the arraylist
     theResturant.addManager(Ferb);
@@ -98,53 +97,57 @@ public class Main {
         choice = keyboard.readLine();
       } 
       
-      // Displays HR information about managers and allows the user to add managers
-      if (choice.equals("11002")) {
-        // Prints out the current managers
-        theResturant.printManagers();          
+    // Displays HR information about managers and allows the user to add managers
+    if (choice.equals("11002")) {
+      // Prints out the existing managers
+      theResturant.printCashiers();          
+
+      // Asks the user if they would like to add another manager
+      System.out.println("Enter 'yes' if you would like to add a new manager or enter any other key for 'no'");
+      String addCashier = keyboard.readLine();
+
+      // Allows the user to create another manager
+      while (addCashier.equalsIgnoreCase("yes")) {
+        System.out.print("First Name: ");
+        String fName = keyboard.readLine();
+
+        System.out.print("Last Name: ");
+        String lName = keyboard.readLine();
+
+        System.out.print("Home Address: ");
+        String address = keyboard.readLine();
+
+        System.out.print("Medical Information: ");
+        String medCondition = keyboard.readLine();
+
+        System.out.print("Number of Working Hours (per week): ");
+        int hours = Integer.parseInt(keyboard.readLine());
+
+        // Creates a new Manager with given information and prints out the new Manager
+        Manager newManager = new Manager(fName, lName, address, medCondition, 70000, hours);
+        theResturant.addManager(newManager);
+        System.out.println(newManager);
 
         System.out.println("Enter 'yes' if you would like to add a new Manager or enter any other key for 'no'");
-        String addManager = keyboard.readLine();
+        addCashier = keyboard.readLine();
+      }
 
-        // Allows the user to add as many managers as they want
-        while (addManager.equalsIgnoreCase("yes")) {
-          System.out.print("First Name: ");
-          String fName = keyboard.readLine();
-
-          System.out.print("Last Name: ");
-          String lName = keyboard.readLine();
-
-          System.out.print("Home Address: ");
-          String address = keyboard.readLine();
-
-          System.out.print("Medical Information: ");
-          String medCondition = keyboard.readLine();
-
-          // Creates a new manager with given information and prints out the new developer
-          newManager = new Manager(fName, lName, address, medCondition, 90000, hours);
-          theResturant.addManager(newManager);
-          System.out.println(newManager);
-
-          System.out.println("Enter 'yes' if you would like to add a new Manager or enter any other key for 'no'");
-          addManager = keyboard.readLine();
-        }
-
-        // The user can view other menu options or exit the program
-        System.out.println("\nPlease enter the secure passcode or any other key to exit");
-        choice = keyboard.readLine();
-      } 
+      // The user can view other menu options or exit the program
+      System.out.println("\nPlease enter the secure passcode or any other key to exit");
+      choice = keyboard.readLine();
+    }
       
-      // Displays HR information about developers and allows the user to add developers
+      // Displays HR information about cashiers and allows the user to add cashiers
       if (choice.equals("11003")) {
-        // Prints out the existing developers
-        theResturant.printDevs();          
+        // Prints out the existing cashiers
+        theResturant.printCashiers();          
 
-        // Asks the user if they would like to add another developer
-        System.out.println("Enter 'yes' if you would like to add a new Developer or enter any other key for 'no'");
-        String addDev = keyboard.readLine();
+        // Asks the user if they would like to add another cashier
+        System.out.println("Enter 'yes' if you would like to add a new cashier or enter any other key for 'no'");
+        String addCashier = keyboard.readLine();
 
-        // Allows the user to create another developer
-        while (addDev.equalsIgnoreCase("yes")) {
+        // Allows the user to create another cashier
+        while (addCashier.equalsIgnoreCase("yes")) {
           System.out.print("First Name: ");
           String fName = keyboard.readLine();
 
@@ -160,13 +163,93 @@ public class Main {
           System.out.print("Number of Working Hours (per week): ");
           int hours = Integer.parseInt(keyboard.readLine());
 
-          // Creates a new developer with given information and prints out the new developer
-          newDev = new Developer(fName, lName, address, medCondition, 90000, hours);
-          theResturant.addDeveloper(newDev);
-          System.out.println(newDev);
+          // Creates a new Cashier with given information and prints out the new Cashier
+          Cashier newCashier = new Cashier(fName, lName, address, medCondition, 70000, hours);
+          theResturant.addCashier(newCashier);
+          System.out.println(newCashier);
 
-          System.out.println("Enter 'yes' if you would like to add a new Developer or enter any other key for 'no'");
-          addDev = keyboard.readLine();
+          System.out.println("Enter 'yes' if you would like to add a new Cashier or enter any other key for 'no'");
+          addCashier = keyboard.readLine();
+        }
+
+        // The user can view other menu options or exit the program
+        System.out.println("\nPlease enter the secure passcode or any other key to exit");
+        choice = keyboard.readLine();
+      }
+
+       // Displays HR information about chefs and allows the user to add chefs
+       if (choice.equals("11004")) {
+        // Prints out the existing chefs
+        theResturant.printChefs();          
+
+        // Asks the user if they would like to add another chef
+        System.out.println("Enter 'yes' if you would like to add a new chef or enter any other key for 'no'");
+        String addChef = keyboard.readLine();
+
+        // Allows the user to create another chef
+        while (addChef.equalsIgnoreCase("yes")) {
+          System.out.print("First Name: ");
+          String fName = keyboard.readLine();
+
+          System.out.print("Last Name: ");
+          String lName = keyboard.readLine();
+
+          System.out.print("Home Address: ");
+          String address = keyboard.readLine();
+
+          System.out.print("Medical Information: ");
+          String medCondition = keyboard.readLine();
+
+          System.out.print("Number of Working Hours (per week): ");
+          int hours = Integer.parseInt(keyboard.readLine());
+
+          // Creates a new Chef with given information and prints out the new Chef
+          Chef newChef = new Chef(fName, lName, address, medCondition, 120000, hours);
+          theResturant.addChef (newChef);
+          System.out.println(newChef);
+
+          System.out.println("Enter 'yes' if you would like to add a new Chef or enter any other key for 'no'");
+          addChef = keyboard.readLine();
+        }
+
+        // The user can view other menu options or exit the program
+        System.out.println("\nPlease enter the secure passcode or any other key to exit");
+        choice = keyboard.readLine();
+      }
+
+       // Displays HR information about waitresses and allows the user to add waitresses
+       if (choice.equals("11005")) {
+        // Prints out the existing waitresses
+        theResturant.printWaitresses();       
+
+        // Asks the user if they would like to add another waitress
+        System.out.println("Enter 'yes' if you would like to add a new waitress or enter any other key for 'no'");
+        String addWaitress = keyboard.readLine();
+
+        // Allows the user to create another waitresss
+        while (addWaitress.equalsIgnoreCase("yes")) {
+          System.out.print("First Name: ");
+          String fName = keyboard.readLine();
+
+          System.out.print("Last Name: ");
+          String lName = keyboard.readLine();
+
+          System.out.print("Home Address: ");
+          String address = keyboard.readLine();
+
+          System.out.print("Medical Information: ");
+          String medCondition = keyboard.readLine();
+
+          System.out.print("Number of Working Hours (per week): ");
+          int hours = Integer.parseInt(keyboard.readLine());
+
+          // Creates a new waitress with given information and prints out the new waitress
+          Waitress newWaitress = new Waitress(fName, lName, address, medCondition, 60000, hours, tips);
+          theResturant.addWaitress(newWaitress);
+          System.out.println(newWaitress);
+
+          System.out.println("Enter 'yes' if you would like to add a new waitress or enter any other key for 'no'");
+          addWaitress = keyboard.readLine();
         }
 
         // The user can view other menu options or exit the program
@@ -175,31 +258,41 @@ public class Main {
       }
 
       // Allows the user to view the HR summary report
-      if (choice.equals("11004")) {
+      if (choice.equals("11006")) {
 
         // Prints out the HR Report
-        System.out.println("\nBelow is the HR Overall ResttheResturant Report");
+        System.out.println("\nBelow is the HR Overall the Resturant Report");
 
         // States the number of employees for each level
         System.out.println("\nTotal Number of CEOs: 1");
-        System.out.println("Total Number of Software Development Managers: " + theResturant.getNumManagers());
-        System.out.println("Total Number of Software Developers: " + theResturant.getNumDev());
+        System.out.println("Total Number of  Managers: " + theResturant.getNumManagers());
+        System.out.println("Total Number of Cashiers: " + theResturant.getNumCashiers());
+        System.out.println("Total Number of Chef: " + theResturant.getNumChefs());
+        System.out.println("Total Number of Waitresses: " + theResturant.getNumWaitresses());
 
         // States the payroll for each level
         System.out.println("\nTotal Payroll for CEO: $" + CEO.getCEOPayroll());
-        System.out.println("Total Payroll for Software Development Managers: $" + theResturant.getPayrollManager());
-        System.out.println("Total Payroll for Software Developers Developers: $" + theResturant.getPayrollDev());
+        System.out.println("Total Payroll for Managers: $" + theResturant.getManagerPayroll());
+        System.out.println("Total Payroll for Cashiers: $" + theResturant.getCashierPayroll());
+        System.out.println("Total Payroll for Chefs: $" + theResturant.getChefPayroll());
+        System.out.println("Total Payroll for Waitresses: $" + theResturant.getWaitressPayroll());
 
         // States the total payroll for all employees
-        totalPayroll = CEO.getCEOPayroll() + theResturant.getPayrollManager() + theResturant.getPayrollDev();
+        totalPayroll = CEO.getCEOPayroll() + theResturant.getManagerPayroll() + theResturant.getCashierPayroll() + theResturant.getChefPayroll() + theResturant.getWaitressPayroll();
         System.out.println("Total Payroll: $" + totalPayroll);
 
         // States specific attributes of each level
-        System.out.println("\nCEO Bonus Pay: $" + SpongeBob.getCEOBonus());
-        System.out.println("\nSoftware Developer Working Hours (per week)");
-        theResturant.printDevHours();
-        System.out.println("\nSoftware Development Manager Current Projects");
-        theResturant.printManagerProject();
+        System.out.println("\nCEO Bonus Pay: $" + Phineas.getCEOBonus());
+        System.out.println("\nManager Working Hours (per week)");
+        theResturant.printManagerHours();
+        System.out.println("\nCashier Working Hours (per week)");
+        theResturant.printCashierHours();
+        System.out.println("\nChef Working Hours (per week)");
+        theResturant.printChefHours();
+        System.out.println("\nWaitress Working Hours (per week)");
+        theResturant.printWaitressHours();
+        System.out.println("\nWaitress Tips (per week)");
+        theResturant.printWaitressTips();
 
         // The user can view other menu options or exit the program
         System.out.println("\nPlease enter the secure passcode or any other key to exit");
