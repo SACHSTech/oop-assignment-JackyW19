@@ -29,7 +29,7 @@ public class Restaurant {
   * Method allows for the adding of a cashier
   * @return void
   */
-  public void addcashier(Cashier newCashier){
+  public void addCashier(Cashier newCashier){
     cashiers.add(newCashier);
   }
 
@@ -140,6 +140,18 @@ public class Restaurant {
   }
 
   /**
+  * Method allows for getting the total waitress payroll
+  * @return total payroll for waitresses
+  */
+  public int getWaitressTips(){
+    int totalPayroll = 0;
+    for(int i = 0; i < getNumWaitresses(); i++){
+      totalPayroll = totalPayroll + waitresses.get(i).getTips();
+    }
+    return totalPayroll;
+  }
+
+  /**
   * Method allows for the printing out of all the managers
   * @return void
   */
@@ -216,6 +228,16 @@ public class Restaurant {
   public void printWaitressHours(){
     for (int i = 0; i < getNumWaitresses(); i++) {
       System.out.println(waitresses.get(i).getFirstName() + " " + waitresses.get(i).getLastName() + ": " + waitresses.get(i).getHours());
+    }
+  }
+
+  /**
+  * Method allows for the printing out of all the waitresses tips
+  * @return void
+  */
+  public void printWaitressTips(){
+    for (int i = 0; i < getNumWaitresses(); i++) {
+      System.out.println(waitresses.get(i).getFirstName() + " " + waitresses.get(i).getLastName() + ": " + waitresses.get(i).getTips());
     }
   }
 
