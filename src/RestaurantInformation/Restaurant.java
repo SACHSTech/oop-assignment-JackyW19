@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Restaurant {
 
   // Instance Variables
-  private CEO CEO;
+  
   private ArrayList<Cashier> cashiers;
   private ArrayList<Manager> managers;
   private ArrayList<Chef> chefs;
@@ -17,7 +17,6 @@ public class Restaurant {
     * @param theCEO - the CEO
     */
   public Restaurant(CEO theCEO){
-    CEO = theCEO;
     // Initializes the staff lists
     cashiers = new ArrayList<Cashier>();
     managers = new ArrayList<Manager>();
