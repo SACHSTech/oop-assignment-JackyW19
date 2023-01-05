@@ -15,6 +15,7 @@ public class Waitress extends Employee{
     * @param med - the Waitress's medical information
     * @param sal - the Waitress's salary
     * @param theHours - the Waitress's hours
+    * @param theTips - the Waitress's tips
     */
   public Waitress(String fname, String lname, String address, String med, int sal, int theHours, int theTips){
     // Triggers a parent constructor in Employee class
@@ -33,6 +34,7 @@ public class Waitress extends Employee{
 
   /**
   * Getter method for Waitress's tips
+  * @return Waitress's tips
   */
   public int getTips(){
     return tips;

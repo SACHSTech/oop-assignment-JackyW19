@@ -1,7 +1,8 @@
 package RestaurantInformation;
 
 public  class Employee {
-    // Instance Variables
+
+  // Instance Variables
   private String firstName;
   private String lastName;
   private String homeAddress;
