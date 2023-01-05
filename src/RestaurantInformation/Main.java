@@ -15,6 +15,7 @@ public class Main {
     Chef Perry;
     Waitress Vanessa;
     Waitress Isabella;
+    Waitress Jeremy;
     
     // Initialize variables
     String choice = "0";
@@ -67,7 +68,7 @@ public class Main {
     Perry = new Chef("Perry", "Platypus", "30 Platy Avenue", "Seafood Allergy", 120000, 63);
     Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 57, 2700);
     Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", "Peanut Allergy", 60000, 56, 2600);
-    
+    Jeremy = new Waitress("Jeremy", "Johnson", "28 Macdonald Street", "Asthma", 60000, 58, 2850);
     // Creates a Resturant object
     Restaurant theResturant = new Restaurant(Phineas);
 
@@ -80,6 +81,7 @@ public class Main {
     theResturant.addChef(Perry);
     theResturant.addWaitress(Vanessa);
     theResturant.addWaitress(Isabella);
+    theResturant.addWaitress(Jeremy);
 
     // Allows the user to select any option and as many times as they want
     while (choice.equals("1001") || choice.equals("1002") || choice.equals("1003") || choice.equals("1004") || choice.equals("1005") || choice.equals("1006")) { 
