@@ -1,12 +1,9 @@
 package RestaurantInformation;
 
 import java.io.*;
-import java.util.ArrayList;
-
-import org.hamcrest.core.Is;
 
 public class Main {
-     public static void main(String[] args, int tips) throws IOException{
+     public static void main(String[] args) throws IOException{
 
     // Initialize objects
     CEO Phineas;
@@ -39,16 +36,16 @@ public class Main {
     if (username.equalsIgnoreCase("Jacky") && password.equalsIgnoreCase("Wang")) {
 
       // Provides an ID# and states what information the user can access
-      System.out.println("\nAcceptable Username and Password...Your secure ID# is 1100");
-      System.out.println("Your clearance level grants you access to the private HR information below");
+      System.out.println("\nUsername and Password Accepted... Your secure ID# is 1000.");
+      System.out.println("Your clearance level grants you access to the private information below.");
       System.out.println("1 - CEO");
-      System.out.println("2 - Manager");
-      System.out.println("3 - Cashier");
+      System.out.println("2 - Managers");
+      System.out.println("3 - Cashiers");
       System.out.println("4 - Chefs");
-      System.out.println("5- Waitresses");
-      System.out.println("6 - HR Report");
+      System.out.println("5 - Waitresses");
+      System.out.println("6 - Summary Report");
 
-      System.out.println("Please enter the secure passcode. E.g. 11001 for CEO or 11002 for Managers");
+      System.out.println("Please enter the secure passcode. E.g. 1001 for CEO or 1002 for Managers.");
 
       choice = keyboard.readLine();
 
@@ -61,16 +58,16 @@ public class Main {
     }
 
     // Creates existing employees
-    Phineas = new CEO("Phineas", "Flynn", "2308 Maple Drive.", "Peanut Allergy", 2000000, 10000);
-    Ferb = new Manager("Ferb", "Fletcher", "2308 Maple Drive.", "n/a", 90000, 5500);
-    Heinz = new Manager("Heinz", "Doofenshmirtz", "75 Main Street.", "n/a", 90000, 6000);
-    Candace = new Cashier("Candace", "Flynn", "2308 Maple Drive.", "Asthma", 70000, 4500);
-    Linda = new Cashier("Linda", "Fletcher", "2308 Maple Drive.", "n/a", 70000, 5100);
-    Baljeet = new Chef("Baljeet", "Brown", "28 Alvin Street.", "Dog Allergy", 120000, 6500);
-    Perry = new Chef("Perry", "Platypus", "30 Platy Avenue", "Seafood Allergy", 120000, 6400);
-    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 4500, 2500);
-    Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", "Peanut Allergy", 60000, 4600, 2700);
-
+    Phineas = new CEO("Phineas", "Flynn", "2308 Maple Drive.", "Peanut Allergy", 200000, 10000);
+    Ferb = new Manager("Ferb", "Fletcher", "2308 Maple Drive.", "n/a", 90000, 66);
+    Heinz = new Manager("Heinz", "Doofenshmirtz", "75 Main Street.", "n/a", 90000, 67);
+    Candace = new Cashier("Candace", "Flynn", "2308 Maple Drive.", "Asthma", 70000, 60);
+    Linda = new Cashier("Linda", "Fletcher", "2308 Maple Drive.", "n/a", 70000, 58);
+    Baljeet = new Chef("Baljeet", "Brown", "28 Alvin Street.", "Dog Allergy", 120000, 62);
+    Perry = new Chef("Perry", "Platypus", "30 Platy Avenue", "Seafood Allergy", 120000, 63);
+    Vanessa = new Waitress("Vanessa", "Doofenshmirtz", "75 Main Street", "n/a", 60000, 57, 2700);
+    Isabella = new Waitress("Isabella", "Shapiro", "157 Danville Street", "Peanut Allergy", 60000, 56, 2600);
+    
     // Creates a Resturant object
     Restaurant theResturant = new Restaurant(Phineas);
 
@@ -85,10 +82,10 @@ public class Main {
     theResturant.addWaitress(Isabella);
 
     // Allows the user to select any option and as many times as they want
-    while (choice.equals("11001") || choice.equals("11002") || choice.equals("11003") || choice.equals("11004") || choice.equals("11005") || choice.equals("11006") || choice.equals("11007")) { 
+    while (choice.equals("1001") || choice.equals("1002") || choice.equals("1003") || choice.equals("1004") || choice.equals("1005") || choice.equals("1006")) { 
 
-      // Displays HR information about the CEO
-      if (choice.equals("11001")) {
+      // Displays information about the CEO
+      if (choice.equals("1001")) {
         // Prints out the CEO
         System.out.println(Phineas);
         
@@ -97,10 +94,10 @@ public class Main {
         choice = keyboard.readLine();
       } 
       
-    // Displays HR information about managers and allows the user to add managers
-    if (choice.equals("11002")) {
+    // Displays information about managers and allows the user to add managers
+    if (choice.equals("1002")) {
       // Prints out the existing managers
-      theResturant.printCashiers();          
+      theResturant.printManagers();          
 
       // Asks the user if they would like to add another manager
       System.out.println("Enter 'yes' if you would like to add a new manager or enter any other key for 'no'");
@@ -137,8 +134,8 @@ public class Main {
       choice = keyboard.readLine();
     }
       
-      // Displays HR information about cashiers and allows the user to add cashiers
-      if (choice.equals("11003")) {
+      // Displays information about cashiers and allows the user to add cashiers
+      if (choice.equals("1003")) {
         // Prints out the existing cashiers
         theResturant.printCashiers();          
 
@@ -177,8 +174,8 @@ public class Main {
         choice = keyboard.readLine();
       }
 
-       // Displays HR information about chefs and allows the user to add chefs
-       if (choice.equals("11004")) {
+       // Displays information about chefs and allows the user to add chefs
+       if (choice.equals("1004")) {
         // Prints out the existing chefs
         theResturant.printChefs();          
 
@@ -217,8 +214,8 @@ public class Main {
         choice = keyboard.readLine();
       }
 
-       // Displays HR information about waitresses and allows the user to add waitresses
-       if (choice.equals("11005")) {
+       // Displays information about waitresses and allows the user to add waitresses
+       if (choice.equals("1005")) {
         // Prints out the existing waitresses
         theResturant.printWaitresses();       
 
@@ -243,6 +240,9 @@ public class Main {
           System.out.print("Number of Working Hours (per week): ");
           int hours = Integer.parseInt(keyboard.readLine());
 
+          System.out.print("Amount of Tips (per week): ");
+          int tips = Integer.parseInt(keyboard.readLine());
+
           // Creates a new waitress with given information and prints out the new waitress
           Waitress newWaitress = new Waitress(fName, lName, address, medCondition, 60000, hours, tips);
           theResturant.addWaitress(newWaitress);
@@ -257,15 +257,15 @@ public class Main {
         choice = keyboard.readLine();
       }
 
-      // Allows the user to view the HR summary report
-      if (choice.equals("11006")) {
+      // Allows the user to view the summary report
+      if (choice.equals("1006")) {
 
-        // Prints out the HR Report
-        System.out.println("\nBelow is the HR Overall the Resturant Report");
+        // Prints out the Report
+        System.out.println("\nBelow is the Overall report of the Restaurant");
 
         // States the number of employees for each level
         System.out.println("\nTotal Number of CEOs: 1");
-        System.out.println("Total Number of  Managers: " + theResturant.getNumManagers());
+        System.out.println("Total Number of Managers: " + theResturant.getNumManagers());
         System.out.println("Total Number of Cashiers: " + theResturant.getNumCashiers());
         System.out.println("Total Number of Chef: " + theResturant.getNumChefs());
         System.out.println("Total Number of Waitresses: " + theResturant.getNumWaitresses());
